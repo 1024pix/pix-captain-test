@@ -18,4 +18,4 @@ jobs:
           channel-id: ${{ steps.pix-on-dev-merge-action.outputs.label }}
           slack-message: 'Le fichier de configuration a été modifié. Vérifier les varaiables d''environnement sur Scalingo Intégration'
         env:
-          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          SLACK_BOT_TOKEN: ${{ secrets.PIX_BOT_RUN_SLACK_TOKEN }}
