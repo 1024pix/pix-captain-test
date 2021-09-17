@@ -1,1 +1,1 @@
-const name = 'config2.js';
+const name = 'config3.js';
