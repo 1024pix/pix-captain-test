@@ -7,9 +7,15 @@ jobs:
   call-on-pix-dev-merge-action:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
       - name: Call on pix dev merge action
+        id: pix-on-dev-merge-action
         uses: 1024pix/pix-on-dev-merge-action@v1.0.0
         with:
-          github-token: "${{ secrets.PIX_SERVICE_ACTIONS_TOKEN }}"
+          GITHUB-TOKEN: "${{ secrets.PIX_SERVICE_ACTIONS_TOKEN }}"
+      - name: Send message to a Pix Team
+        uses: slackapi/slack-github-action@v1.14.0
+        with:
+          channel-id: ${{ steps.pix-on-dev-merge-action.outputs.label }}
+          slack-message: 'Le fichier de configuration a été modifié. Vérifier les varaiables d''environnement sur Scalingo Intégration'
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
