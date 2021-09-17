@@ -11,11 +11,5 @@ jobs:
         id: pix-on-dev-merge-action
         uses: 1024pix/pix-on-dev-merge-action@v1.0.0
         with:
-          GITHUB-TOKEN: "${{ secrets.PIX_SERVICE_ACTIONS_TOKEN }}"
-      - name: Send message to a Pix Team
-        uses: slackapi/slack-github-action@v1.14.0
-        with:
-          channel-id: ${{ steps.pix-on-dev-merge-action.outputs.label }}
-          slack-message: 'Le fichier de configuration a été modifié. Vérifier les varaiables d''environnement sur Scalingo Intégration'
-        env:
+          GITHUB_TOKEN: ${{ secrets.PIX_SERVICE_ACTIONS_TOKEN }}
           SLACK_BOT_TOKEN: ${{ secrets.PIX_BOT_RUN_SLACK_TOKEN }}
