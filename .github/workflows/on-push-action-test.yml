@@ -13,3 +13,4 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.PIX_SERVICE_ACTIONS_TOKEN }}
           SLACK_BOT_TOKEN: ${{ secrets.PIX_BOT_RUN_SLACK_TOKEN }}
+          INTEGRATION_ENV_URL: ${{ secrets.INTEGRATION_ENV_URL }}
