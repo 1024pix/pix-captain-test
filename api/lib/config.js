@@ -1,1 +1,1 @@
-const name = 'config17js';
+const name = 'config18js';
