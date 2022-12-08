@@ -1,0 +1,22 @@
+{
+  "name": "pix-captain-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Test\" && sleep 30 && echo \"Test ok\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1024pix/pix-captain-test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/1024pix/pix-captain-test/issues"
+  },
+  "homepage": "https://github.com/1024pix/pix-captain-test#readme",
+  "dependencies": {
+    "prettier": "^2.8.0"
+  }
+}

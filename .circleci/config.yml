@@ -1,0 +1,27 @@
+version: 2.1
+
+workflows:
+  version: 2
+  test:
+    jobs:
+      - build_and_test
+
+jobs:
+  build_and_test:
+    docker:
+      - image: cimg/node:16.14.0
+    working_directory: ~/pix-captain-test
+    steps:
+      - checkout
+      - run: cat package*.json > cachekey
+      - restore_cache:
+          keys:
+            - v1-api-npm-{{ checksum "cachekey" }}
+      - run: npm ci
+      - save_cache:
+          key: v1-api-npm-{{ checksum "cachekey" }}
+          paths:
+            - ~/.npm
+      - run:
+          name: Run test
+          command: npm run test
