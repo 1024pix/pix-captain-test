@@ -2,3 +2,4 @@
 /.idea/modules.xml
 /.idea/pix-captain-test.iml
 /.idea/vcs.xml
+**/node_modules
