@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "preinstall": "git config core.hooksPath .githooks",
     "test": "echo \"Test\" && sleep 30 && echo \"Test ok\" && exit 0"
   },
   "repository": {

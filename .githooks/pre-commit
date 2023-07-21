@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+CHANGED_FILES=$(git diff --name-only --cached --diff-filter=ACMR)
+SECRET=postgres://postgres:J9FUMSBhei8oU@db.dbhostprovider.com:5434/thedb
+
+RED='\033[0;31m'
+NO_COLOR='\033[0m'
+
+for file in "${CHANGED_FILES[@]}"
+do
+  MATCHES=$(grep --only $SECRET ${file} | wc -l)
+#  echo "Inspecting file ${file}"
+  if [[ $MATCHES -gt 0 ]]
+     then
+         echo -e "Oops, we found the secret ${RED} ${SECRET} ${NO_COLOR} in file ${file} ! "
+         exit 255
+  fi
+done
