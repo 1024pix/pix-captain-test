@@ -9,7 +9,7 @@ workflows:
 jobs:
   build_and_test:
     docker:
-      - image: cimg/node:18.17.0
+      - image: cimg/node:18.20.4
     working_directory: ~/pix-captain-test
     steps:
       - checkout
