@@ -18,6 +18,6 @@
   "homepage": "https://github.com/1024pix/pix-captain-test#readme",
   "dependencies": {
     "prettier": "^3.0.0",
-    "scalingo": "^0.4.0"
+    "scalingo": "^0.8.0"
   }
 }
