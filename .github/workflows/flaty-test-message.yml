@@ -1,3 +1,4 @@
+name: Flaky tests slack notification
 on:
   # schedule:
   #   # Tous les lundis à 8h UTC
@@ -38,15 +39,15 @@ jobs:
               | map("• `\(.classname // "?")::\(.test_name // "?")` — \(.times_flaked // 0)x _(job: \(.job_name // "?"))_")
               | join("\n")
             ' flaky.json)
-
-            jq -n --arg count "$COUNT" --arg top "$TOP" '{
+  
+              jq -n --arg count "$COUNT" --arg top "$TOP" '{
               text: "🪲 Flaky tests — \($count) détecté(s)",
               blocks: [
                 { type: "header", text: { type: "plain_text", text: "🪲 Rapport flaky tests" } },
                 { type: "section", text: { type: "mrkdwn", text: "Total détectés : *\($count)* — top 10 :" } },
                 { type: "section", text: { type: "mrkdwn", text: $top } },
                 { type: "context", elements: [
-                  { type: "mrkdwn", text: "Source : <https://app.circleci.com/insights/github/1024pix/pix/flaky-tests|CircleCI Insights>" }
+                  { type: "mrkdwn", text: "Source : <https://app.circleci.com/insights/github/1024pix/pix/workflows/build-and-test/tests|CircleCI Tests>" }
                 ]}
               ]
             }' > payload.json
