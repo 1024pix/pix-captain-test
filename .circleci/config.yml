@@ -9,7 +9,7 @@ workflows:
 jobs:
   build_and_test:
     docker:
-      - image: cimg/node:18.20.4
+      - image: cimg/node:18.20.8@sha256:b4cda63ce8c33c7a4795cd4253f2bc907703381d9bbf4ae78de7e75ca743560f
     working_directory: ~/pix-captain-test
     steps:
       - checkout
