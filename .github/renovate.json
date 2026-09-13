@@ -3,14 +3,21 @@
   "extends": [
     "github>1024pix/renovate-config:default"
   ],
-  "labels": ["renovate","no-review-app"],
-  "schedule": ["at any time"],
+  "labels": [
+    "renovate",
+    "no-review-app"
+  ],
+  "schedule": [
+    "at any time"
+  ],
   "prHourlyLimit": 0,
   "prConcurrentLimit": 0,
   "packageRules": [
     {
-      "matchPackagePatterns": ["*"],
-      "automerge": true
+      "automerge": true,
+      "matchPackageNames": [
+        "*"
+      ]
     }
   ]
 }
